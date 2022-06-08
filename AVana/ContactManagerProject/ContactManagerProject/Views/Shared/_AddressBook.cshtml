@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ContactManagerProject.Models.AddressBook>
+
+<h3>UserName: @ViewData["a"]</h3>
+
+<style>
+    .insertimg {
+        display: none;
+    }
+</style>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+@if (User.Identity.Name != "Anusha")
+{
+<p>
+<a asp-action="Create" asp-controller="AddressBooks"><i class='fas fa-plus-circle'></i>Create New</a>
+</p>
+}
+<table class="table" id='myTable'>
+    <thead>
+        <tr>
+            <th> FirstName </th>
+            <th> LastName </th>
+            <th> Email </th>
+            <th> PhoneNo </th>
+            <th> Address </th>
+            <th> StateName </th>
+            <th>CountryName</th>
+            <th> Edit </th>
+            <th> Details </th>
+            <th> Delete </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.EmailId </td>
+                <td>@item.PhoneNo</td>
+                <td>@item.Address1</td>
+                <td>@item.Fkstate.StateName</td>
+                <td>@item.Fkstate.Fkcountry.CountryName</td>
+                <td><a asp-action="Edit" asp-route-id="@item.PkaddressId"><button><i class='fas fa-user-edit'></i></button></a> </td>
+                <td><a asp-action="Details" asp-route-id="@item.PkaddressId"><button><i class='fas fa-info-circle'></i></button></a> </td>
+                <td><a asp-action="Delete" asp-route-id="@item.PkaddressId"><button><i class="material-icons" style="font-size:18px">delete</i></button></a> </td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>

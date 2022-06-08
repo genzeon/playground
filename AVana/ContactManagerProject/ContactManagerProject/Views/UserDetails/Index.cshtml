@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ContactManagerProject.Models.UserDetail>
+
+<style>
+    .insertimg {
+        display: none;
+    }
+</style>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+<h1 class="header"><i><u>User Details</u></i></h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table" id='UserTable'>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @*<label for="Edit">Edit</label>
+
+                    <label for="Details">Details</label>
+
+                    <label for="Delete">Delete</label>*@
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PkuserId"><button><i class='fas fa-user-edit'></i></button></a> |
+                    <a asp-action="Details" asp-route-id="@item.PkuserId"><button><i class='fas fa-info-circle'></i></button></a> |
+                    <a asp-action="Delete" asp-route-id="@item.PkuserId"><button><i class="material-icons" style="font-size:18px">delete</i></button></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
