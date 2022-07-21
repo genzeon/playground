@@ -33,30 +33,51 @@ namespace TestBlackJackDeck
     {
         public List<Card> Cards;
 
+
         public void deck()
         {
             Cards = new List<Card>();
+            Cards.Add(new Card() { Value = Value.ace, Color = Color.red, Suit = Suit.heart });
+            Cards.Add(new Card() { Value = Value.two, Color = Color.red, Suit = Suit.heart });
+            Cards.Add(new Card() { Value = Value.three, Color = Color.red, Suit = Suit.heart });
+            Cards.Add(new Card() { Value = Value.four, Color = Color.red, Suit = Suit.heart });
+            Cards.Add(new Card() { Value = Value.five, Color = Color.red, Suit = Suit.heart });
+            Cards.Add(new Card() { Value = Value.six, Color = Color.red, Suit = Suit.heart });
+            Cards.Add(new Card() { Value = Value.seven, Color = Color.red, Suit = Suit.heart });
+            Cards.Add(new Card() { Value = Value.eight, Color = Color.red, Suit = Suit.heart });
+            Cards.Add(new Card() { Value = Value.nine, Color = Color.red, Suit = Suit.heart });
+            Cards.Add(new Card() { Value = Value.ten, Color = Color.red, Suit = Suit.heart });
+            Cards.Add(new Card() { Value = Value.king, Color = Color.red, Suit = Suit.heart });
+            Cards.Add(new Card() { Value = Value.queen, Color = Color.red, Suit = Suit.heart });
+            Cards.Add(new Card() { Value = Value.jack, Color = Color.red, Suit = Suit.heart });
+         
+            
+          
 
-            for (int suit = 1; suit <= 4; suit++)
-            {
-                for (int value = 1; value <= 13; value++)
-                {
-                    Card card = new Card();
-                    card.Value = (Value)value;
-                    card.Suit = (Suit)suit;
-                    if (suit == 1 || suit == 2)
-                    {
-                        card.Color = (Color)1;
-                    }
-                    else if (suit == 3 || suit == 4)
-                    {
-                        card.Color = (Color)2;
-                    }
 
-                    Cards.Add(card);
-                }
 
-            }
+
+
+            //for (int suit = 1; suit <= 4; suit++)
+            //{
+            //    for (int value = 1; value <= 13; value++)
+            //    {
+            //        Card card = new Card();
+            //        card.Value = (Value)value;
+            //        card.Suit = (Suit)suit;
+            //        if (suit == 1 || suit == 2)
+            //        {
+            //            card.Color = (Color)1;
+            //        }
+            //        else if (suit == 3 || suit == 4)
+            //        {
+            //            card.Color = (Color)2;
+            //        }
+
+            //        Cards.Add(card);
+            //    }
+
+            //}
 
         }
         public void DeckShuffle()
@@ -72,7 +93,6 @@ namespace TestBlackJackDeck
             }
         }
     }
-
     public class UnitTest1
     {
         [Fact]
@@ -110,25 +130,100 @@ namespace TestBlackJackDeck
             Deck deck = new Deck();
             //Act
             deck.deck();
+
             //Assert
             int noofcards = deck.Cards.Count();
             Assert.Equal(52, noofcards);
+            var A = deck.Cards;
+            int count = 0;
+            for (int i = 0; i < deck.Cards.Count(); i++)
+            {
+
+
+                for (int j = 0; j < deck.Cards.Count(); j++)
+                {
+                    if (i == j)
+                    {
+                        continue;
+                    }
+
+
+                    if (A[i].Value == A[j].Value)
+
+                    {
+                        count++;
+                        break;
+                    }
+
+                }
+
+            }
+
+            Assert.Equal(52, count);
+
+
         }
 
+
         [Fact]
-        public void DeckshuffleMethodTest()
+        public void DeckMethodtestduplicates()
         {
             //Arrange
-            Deck instancedeck = new Deck();
+            Deck deck = new Deck();
             //Act
-            instancedeck.deck();
-            var beforeshuffle = instancedeck.Cards;
-            instancedeck.DeckShuffle();
-            var aftershuffle = instancedeck.Cards;
+            deck.deck();
+
             //Assert
-            Assert.Equal(beforeshuffle, aftershuffle);
+
+            var A = deck.Cards;
+            int count = 0;
+            for (int i = 0; i < A.Count; i++)
+            {
+
+                for (int j = i; j < A.Count; j++)
+                {
+                    if (i == j )
+                    {
+                        continue;
+                    }
+                  
+                    else if (A[i].Value == A[j].Value & A[i].Suit == A[j].Suit & A[i].Color == A[j].Color)
+                    {
+                        count++;
+                    }
+                   
+                }
+
+
+
+            }
+
+            Assert.Equal(2,count);
+
         }
+
+
+
+
+
+    
+
+
+
+    [Fact]
+    public void DeckshuffleMethodTest()
+    {
+        //Arrange
+        Deck instancedeck = new Deck();
+        //Act
+        instancedeck.deck();
+        var beforeshuffle = instancedeck.Cards;
+        instancedeck.DeckShuffle();
+        var aftershuffle = instancedeck.Cards;
+        //Assert
+        Assert.Equal(beforeshuffle, aftershuffle);
     }
+}
 
 
 }
