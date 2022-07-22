@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Coin
-{
-    internal class Coin
-    {
-    }
-}
+//namespace Coin
+//{
+//    internal class Coin
+//    {
+//    }
+//}
 
 
-namespace Coins
+namespace CoinStimulates.Models
 {
 
 
@@ -24,29 +24,30 @@ namespace Coins
     public class coin
     {
 
-
-        public Coinface face;
+        Coinface _Up;
+        Coinface _Down;
+      
 
         public Coinface Up
         {
             get
             {
-                return Coinface.heads;
+                return _Up;
             }
             set
             {
-                face = Coinface.heads;
+                _Up = value;
             }
         }
         public Coinface Down
         {
             get
             {
-                return Coinface.tails;
+                return _Down;
             }
             set
             {
-                face = Coinface.tails;
+                _Down = value;
             }
         }
 
@@ -59,17 +60,18 @@ namespace Coins
         }
         public override string ToString()
         {
-            string str = $"up=" + this.Up + "," + "Down=" + this.Down;
+            string str = $"up={this.Up}  Down= {this.Down}";
             return str;
+            //up=heads down=tails
         }
 
-        public void flip()
+        public string flip()
         {
-            int num = 0;
+            
 
             Random random = new Random();
-            num = random.Next(0, 2);
-            Console.WriteLine(num);
+            int num = random.Next(2);
+           
             if (num == 0)
             {
                 Up = Coinface.heads;
@@ -77,19 +79,14 @@ namespace Coins
             }
             else
             {
-                Console.WriteLine("else method is called");
+               
                 Up = Coinface.tails;
                 Down = Coinface.heads;
             }
-
-
-
+            return ToString();
         }
 
-        public string display()
-        {
-            return null;
-        }
+       
     }
 
 }
