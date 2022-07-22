@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center">
+    <form asp-action="Index">
+ <input type = "submit"  value ="Flip a coin"  class="btn btn-success" />
+             
+ </form>
+
+<h1>coin up = @ViewBag.a </h1>
+<h1>coin  down= @ViewBag.b </h1>
+<h1>heads count </h1>
+<h1>trails count </h1>
+</div>
+

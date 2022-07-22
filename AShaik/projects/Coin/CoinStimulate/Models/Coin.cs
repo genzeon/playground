@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-//namespace Coin
-//{
-//    internal class Coin
-//    {
-//    }
-//}
+﻿
 
 
 namespace CoinStimulates.Models
@@ -26,7 +15,7 @@ namespace CoinStimulates.Models
 
         Coinface _Up;
         Coinface _Down;
-      
+
 
         public Coinface Up
         {
@@ -67,11 +56,11 @@ namespace CoinStimulates.Models
 
         public string flip()
         {
-            
+
 
             Random random = new Random();
             int num = random.Next(2);
-           
+
             if (num == 0)
             {
                 Up = Coinface.heads;
@@ -79,14 +68,14 @@ namespace CoinStimulates.Models
             }
             else
             {
-               
+
                 Up = Coinface.tails;
                 Down = Coinface.heads;
             }
             return ToString();
         }
 
-       
+
     }
 
 }
