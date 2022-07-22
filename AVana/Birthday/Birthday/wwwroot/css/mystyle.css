@@ -1,0 +1,62 @@
+﻿
+
+/*.imagestyle{
+    width:2399px;
+    height:1195px;
+}*/
+.section {
+    /*background: url(wishes.jpg);*/
+    background-size: cover;
+   /* width: 2399px;
+    height: 1195px;
+    margin-top: 50px;
+    margin-left:100px;*/
+    position: relative;
+    overflow: hidden;
+}
+
+
+.snow1 {
+    background: url(snow.png);
+    background-repeat: repeat;
+    width: 100%;
+    height: 1190px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: animateOne 8s infinite linear;
+}
+
+/*.snow2 {
+    background: url(snow.png);
+    background-repeat: repeat;
+    width: 100%;
+    height: 1200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: animateSecond 10s infinite linear;
+}*/
+
+
+
+@keyframes animateOne {
+    0% {
+        background-position: 0px 0px
+    }
+
+    100% {
+        background-position: 100px 650px
+    }
+}
+
+
+@keyframes animateSecond {
+    0% {
+        background-position: 0px -100px
+    }
+
+    100% {
+        background-position: 0px 650px
+    }
+}
