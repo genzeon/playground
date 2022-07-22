@@ -3,62 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-
-
-
-
 namespace PlayingWithCoin
 {
-	enum sidesofcoin
+	public enum sidesofcoin
 	{
 		Heads, Tails
 	}
-	class Coin
+	public class Coin
 	{
-		string FacingUpside;
-		string FacingDownside;
-		public Coin(string _FacingUpside, string _Facingdownside)
+		public sidesofcoin FacingUpside;
+		public sidesofcoin FacingDownside;
+		public Coin()
 		{
-			FacingDownside = _Facingdownside;
-			FacingUpside = _FacingUpside;
+			FacingDownside = sidesofcoin.Heads;
+			FacingUpside = sidesofcoin.Tails;
 		}
-		void filp()
+		public void filp()
 		{
 			Random rand = new Random();
 			int num = rand.Next(2);
-			sidesofcoin side = (sidesofcoin)num;
-			FacingUpside = side.ToString();
+			Console.WriteLine(num);
 			if (num != 0)
 			{
-				FacingDownside = sidesofcoin.Heads.ToString();
+				FacingDownside = sidesofcoin.Heads;
+				FacingUpside = sidesofcoin.Tails;
 			}
 			else
 			{
-				FacingDownside = sidesofcoin.Tails.ToString();
+				FacingDownside = sidesofcoin.Tails;
+				FacingUpside = sidesofcoin.Heads;
 			}
 		}
-		public override string ToString()
+		public new string ToString()
 		{
 			return $"Upside: {FacingUpside} \nDownside: {FacingDownside}";
 		}
-		static void Main(string[] args)
+		static void Main()
 		{
-			Coin coin = new Coin("Head", "Tail");
-			Console.WriteLine(coin.ToString());
-			coin.filp();
-			Console.WriteLine(coin.ToString());
-			coin.filp();
-			Console.WriteLine(coin.ToString());
-			coin.filp();
-			Console.WriteLine(coin.ToString());
-			coin.filp();
-			Console.WriteLine(coin.ToString());
-			coin.filp();
-			Console.WriteLine(coin.ToString());
-			coin.filp();
-			Console.WriteLine(coin.ToString());
-			Console.ReadLine();
+
 		}
 	}
 }
