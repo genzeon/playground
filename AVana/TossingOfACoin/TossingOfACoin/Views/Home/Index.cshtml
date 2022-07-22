@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@*@model TossingOfACoin.Models.Fliping*@
+<div class="text-center">
+    <h1 class="display-4">Tossing</h1>
+   
+</div>
+
+<form asp-action="Index">
+    <button >Flip</button>
+</form>
+
+<label><b>The Face of the coin on tossing is @ViewBag.A </b></label><br />
+<label><b> The Alternative side of the coin on tossing is @ViewBag.B </b> </label>
+
+@*@{
+    foreach(var x in Model)
+    {
+        <label>x.upside</label>
+        <label>x.downside</label>
+    }
+}*@

@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+   
+}
+
+
+<div class="text-center">
+   <h2>@ViewBag.FlipRes</h2>
+   <h2>@ViewBag.Count</h2>
+    @*<button class="btn btn-success" onclick="location.href = '@Url.Action("Index","Home")'">Flip</button>*@
+    <form method="post">
+        <input class="btn btn-success" type="submit" value="Flip" />
+    </form>
+
+</div>
+
