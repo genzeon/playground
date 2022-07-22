@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Coin_flip.Models.Coin
+<form action="Home/Index">
+
+    <input type = "button" value = "Flip">
+
+</form>
+@ViewBag.C
+<label>The side Of the Coin</label>
+<form asp-action="Index">
+<input type = "submit" value="Flip"/>
+@ViewBag.Up;
+@ViewBag.Down;
+</form>
