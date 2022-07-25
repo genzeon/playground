@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model CoinFlippingDemoApp.Models.Coin;
+<div class="text-center">
+    <form asp-action="Index">
+        <h1>Flipping A Coin</h1>
+        <input asp-for="_Up" value="@Model._Up" /><br />
+        <input asp-for="_Down" value="@Model._Down" /><br />
+        <label>The Total Count is :  @ViewBag.Count</label><br />
+         <label>The Total Head Count is : @ViewBag.HeadCount</label><br />
+          <label>The Total Tail Count is : @ViewBag.TailCount</label><br />
+        <input type="submit" value="Flip" />
+    </form>
+</div>
+
+

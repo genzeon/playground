@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form method="post">
+    <div class="text-center">
+    Facing Up Side: @ViewBag.Upside</br>
+    Facing Down Side: @ViewBag.DownSide</br>
+    Number of Tosses:@ViewBag.No_Of_Tosses </br>
+    Number of Heads: @ViewBag.HeadsCount </br>
+    Number of Tails:@ViewBag.TailsCount </br>
+    <button type="submit">Toss</button>
+    </div>
+</form>

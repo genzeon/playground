@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Coin\Coin.csproj" />
+    <ProjectReference Include="..\CoinClass\CoinClass.csproj" />
   </ItemGroup>
 
 </Project>
