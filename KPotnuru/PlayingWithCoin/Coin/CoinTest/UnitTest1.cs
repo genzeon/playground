@@ -1,5 +1,5 @@
+using CoinClass;
 using Xunit;
-using PlayingWithCoin;
 namespace CoinTest
 {
 	public class UnitTest1
