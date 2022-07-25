@@ -9,14 +9,14 @@
         }
 
         private Enum _up;
-        public Enum Up
+        public Enum facing_up
         {
             get { return _up; }
             set { _up = value; }
         }
 
         private Enum _down;
-        public Enum Down
+        public Enum facing_down
         {
             get { return _down; }
             set { _down = value; }
@@ -24,13 +24,13 @@
 
         public void setInitialValues()
         {
-            Up = Sides.Heads;
-            Down = Sides.Tails;
+            facing_up = Sides.Heads;
+            facing_down = Sides.Tails;
         }
 
         public override string ToString()
         {
-            return $"Up side : {Up.ToString()} and the Down side : {Down.ToString()}";
+            return $"Up side : {facing_up.ToString()} and the Down side : {facing_down.ToString()}";
         }
 
 
@@ -41,13 +41,13 @@
             
             if(num == 0)
             {
-                Up = Sides.Heads;
-                Down = Sides.Tails;
+                facing_up = Sides.Heads;
+                facing_down = Sides.Tails;
             }
             else
             {
-                Up = Sides.Tails;
-                Down = Sides.Heads;
+                facing_up = Sides.Tails;
+                facing_down = Sides.Heads;
             }
         }
        

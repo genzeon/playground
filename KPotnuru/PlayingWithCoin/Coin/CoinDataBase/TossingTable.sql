@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[TossingTable]
+(
+	[Id] INT NOT NULL PRIMARY KEY,
+	[Name] nvarchar(255) NOT NULL,
+	[FACE_VALUE] BIT NOT NULL,
+	[TRY] INT NOT NULL,
+)
