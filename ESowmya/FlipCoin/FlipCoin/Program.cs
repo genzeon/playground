@@ -1,7 +1,15 @@
+using FlipCoin.Models;
+using FlipCoin.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<CoinContext>(options => options.UseSqlServer(
+
+    builder.Configuration.GetConnectionString("Mystring")));
 
 var app = builder.Build();
 
