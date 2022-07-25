@@ -1,15 +1,8 @@
-using CoinWeb.Data;
-using CoinWeb.Repositary;
-using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(
-	builder.Configuration.GetConnectionString("Defaltconnection"))
-);
-builder.Services.AddScoped<ICoinRepositary, CoinRepositary>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
