@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿    using Microsoft.EntityFrameworkCore;
 using Flipping_Coin.Models;
 
 namespace Flipping_Coin.Data
