@@ -20,19 +20,17 @@ namespace Flipping_Coin.Controllers
         public IActionResult Index()
         {
             coin.setInitialValues();
-            ViewBag.FlipRes = coin.ToString();
-            return View();
+            return View(coin);
         }
         
         [HttpPost]
 
-        public IActionResult Index(int? a)
+        public IActionResult Index(Toss _toss)
         {
             coin.Flip();
-            ViewBag.FlipRes = coin.ToString();
-            Toss toss = new Toss(coin.Up.ToString(), coin.Down.ToString());
-            _coinDb.Add(toss);
-            return View();
+            _coinDb.Add(_toss);
+            _coinDb.SaveChanges();
+            return View(coin);
         }
 
         public IActionResult Privacy()

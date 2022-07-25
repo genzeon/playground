@@ -2,14 +2,42 @@
     ViewData["Title"] = "Home Page";
    
 }
+@model Flipping_Coin.Models.Coin;
 
 
-<div class="text-center">
-   <h2>@ViewBag.FlipRes</h2>
-   <h2>@ViewBag.Count</h2>
-    @*<button class="btn btn-success" onclick="location.href = '@Url.Action("Index","Home")'">Flip</button>*@
-    <form method="post">
-        <input class="btn btn-success" type="submit" value="Flip" />
+<div>
+    <form asp-action="Index">
+        <h2>Flipping Coin</h2>
+        <br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Side</th>
+                    <th>Count</th>
+                </tr>
+                <tr>
+                    <td>Up Side</td>
+                    <td><input asp-for="facing_up" value="@Model.facing_up" class="_output_display"/></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Down Side</td>
+                    <td><input asp-for="facing_down" value="@Model.facing_down" class="_output_display"/></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Total Count</td>
+                    <td></td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td class="_btn"></td>
+                    <td class="_btn"><input class="btn btn-success" type="submit" value="Flip"/></td>
+                </tr>
+            </thead>
+        </table>
+        
     </form>
 
 </div>
