@@ -30,7 +30,7 @@
 
         }
         
-        public void Flip()
+        public void Fliip()
         {
             Random rnd = new Random();
             int num = rnd.Next(2);

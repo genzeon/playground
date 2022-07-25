@@ -1,7 +1,15 @@
+using CoinFlippingDemoApp.Models;
+using CoinFlippingDemoApp.Data; 
+using Microsoft.EntityFrameworkCore;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<CoinContext>(options=>options.UseSqlServer(
+    builder.Configuration.GetConnectionString("MyString")
+    ));
 
 var app = builder.Build();
 
