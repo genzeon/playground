@@ -1,53 +1,70 @@
 ﻿using FlipingOfACoin.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using FlipingOfACoin.Data;
+
 
 namespace FlipingOfACoin.Controllers
 {
-   public enum face
-    {
-        Heads,Tails
-    }
+
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly Coin c = new Coin();
+        private readonly CoinContext _coinContext;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(CoinContext coinContext)
         {
-            _logger = logger;
+            _coinContext = coinContext;
         }
 
-        public IActionResult Index(Coin Coin)
+        public IActionResult Index()
         {
-            int num;
-            Random random = new Random();
+            c.IntialSides();
+            var Coin = _coinContext.Coins.Count();
+            c.ToString();
+            ViewBag.Coin = c.ToString();
+            return View(c);
+        }
+        [HttpPost]
 
-            num = random.Next(2);
-            if(num == 0)
+        public IActionResult Index(Toss _toss)
+        {
+            c.Flip();
+            _coinContext.Add(_toss);
+            _coinContext.SaveChanges();
+            var coincount = _coinContext.Coins.Count();
+            ViewBag.Count = coincount;
+            var coindata = _coinContext.Coins;
+            var Headcount = 0;
+            var Tailcount = 0;
+            foreach (var i in coindata)
             {
-                Coin.Upside = face.Heads;
-                Coin.Downside = face.Tails;   
-            }
-            else
-            {
-                Coin.Upside = face.Tails;
-                Coin.Downside = face.Heads; 
-            }
+                if (i.Upside == "Heads")
+                {
+                    Headcount++;
 
-            ViewBag.a = Coin.Upside;
-            ViewBag.b = Coin.Downside;  
+                }
+                else
+                {
+                    Tailcount++;
+                }
+            }
+            ViewBag.Headcount = Headcount;  
+            ViewBag.Tailcount = Tailcount;  
+                return View(c);
+        }
+
+            public IActionResult Privacy()
+            {
+
                 return View();
-        }
+            }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+            public IActionResult Error()
+            {
+                return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            }
         }
     }
-}
