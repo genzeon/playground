@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div style = "background-color:burlywood; border-radius:10px; height:500px; padding:10px"class = "text-center">
+    <form asp-action="Index">
+        <input type = "submit" value = "Flip" class = "btn btn-primary" style="margin-bottom:10px; border-radius:100px; color:ButtonShadow"/>
+    </form>
+    <p>Up side is <h1>@ViewBag.up</h1></p>
+    <p>--------</p>
+    <p>Down side is <h2>@ViewBag.down</h2></p>
+</div>
+ 
