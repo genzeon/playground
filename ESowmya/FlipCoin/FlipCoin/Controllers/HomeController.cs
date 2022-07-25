@@ -1,31 +1,61 @@
 ﻿using FlipCoin.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using FlipCoin.Data;
 
 namespace FlipCoin.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly Coin coin=new Coin();
+        private readonly CoinContext _coinDb;
 
-        public HomeController(ILogger<HomeController> logger)
+        
+
+        public HomeController(CoinContext coin)
         {
-            _logger = logger;
+            _coinDb=coin;
         }
 
-            Coin coin = new Coin();
+           
         public IActionResult Index()
         {
             coin.set_intial_value();
-            ViewBag.result = coin.ToString();
+           var coincount=_coinDb.Coins.Count();
+            ViewBag.Count=coincount;
+            return View(coin);
+        }
+        [HttpPost]
+
+        public IActionResult Index(Toss _toss)
+        {
             coin.Flip();
-            ViewBag.result = coin.ToString();
-            return View();
+            _coinDb.Add(_toss);
+            _coinDb.SaveChanges();
+            var coincount = _coinDb.Coins.Count();
+            ViewBag.Count = coincount;
+            var coindata=_coinDb.Coins;
+            var Headcount = 0;
+            var TailCount=0; 
+            foreach (var i in coindata)
+            {
+                if (i.Up == "Heads")
+                {
+                    Headcount++;
+                }
+                else
+                {
+                    TailCount++;
+                }
+            }
+            ViewBag.Headcount=Headcount;
+            ViewBag.Tailcount=TailCount;
+            return View(coin);
+
         }
         public IActionResult Privacy()
         {
-          
-            
+                        
             return View();
         }
 

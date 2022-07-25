@@ -1,0 +1,79 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@*
+<h6>no of toss  @ViewBag.xx</h6>
+<h6> no of heads occured @ViewBag.yy</h6>
+<h6> no of tails occured @ViewBag.zz</h6>*@
+
+<head>
+    <title>Title of the document</title>
+    <style>
+      .tableFixHead {
+        overflow-y: auto;
+        height: 506px;
+      }
+      .tableFixHead thead th {
+        position: sticky;
+        top: 0;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+      }
+      th {
+        background:#fe87;
+      }
+      tbody{
+          background-color:powderblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tableFixHead">
+      <table>
+        <thead>
+          <tr>
+            <th>no of toss =  @ViewBag.xx  no of heads =  @ViewBag.yy  no of tails =  @ViewBag.zz </th>
+                    </tr>
+        </thead>
+       <tbody>
+        @foreach (var item in ViewData["aka"] as List<string>)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item)
+                </td>
+               
+              
+            </tr>
+
+            
+        }
+    </tbody>
+      </table>
+    </div>
+  </body>
+
+
+
+
+
+
+
+<div class="text-center">
+
+
+    <form asp-action="flip">
+ <input type = "submit"   value ="Flip a coin"  class="btn btn-success" />
+             
+ </form>
+ </div>

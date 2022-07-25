@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace CoinFlip
 {
-    
-    internal class Coin
+    public interface ICoin
+    {
+
+    }
+     public class Coin:ICoin
     {
        public Coin() { }
+       
 
         private string _up;
 

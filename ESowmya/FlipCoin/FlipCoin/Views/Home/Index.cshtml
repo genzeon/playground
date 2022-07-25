@@ -1,10 +1,21 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model FlipCoin.Models.Coin
 
 
 
 <div>
-    <h2>@ViewBag.Result</h2>
-    <button class="btn btn-secondary" onclick="location.href='@Url.Action("Index","Home")' ">Flip</button>
+    <form asp-action="Index">
+        <h2>FlipCoin</h2>
+        <label>Up Side:</label>
+        <input  asp-for="Up" value="@Model.Up"/> <br />
+        <label>Down Side:</label>
+        <input  asp-for="Down" value="@Model.Down"/> <br />
+        <label>The Total count is : @ViewBag.Count</label><br />
+        <label>The Heads count is:@ViewBag.Headcount</label><br />
+        <label>The Tails count is:@ViewBag.Tailcount</label><br />
+        <input class="btn btn-warning" type="submit" value="Flip"/>
+    </form>
+    
 </div>
