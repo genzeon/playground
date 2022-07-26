@@ -10,14 +10,14 @@ namespace CoinWeb.Repositary
 		{
 			Context = _Context;
 		}
-		public void Add(Occurence occurence)
+		public void Add(TossingTable table)
 		{
-			Context.TossResults.Add(occurence);
+			Context.TossingTable.Add(table);
 		}
 
-		public IEnumerable<Occurence> GetAll()
+		public IEnumerable<TossingTable> GetAll(TossingTable table)
 		{
-			return Context.TossResults;
+			return Context.TossingTable.Where(a=>a.Name==table.Name).ToList();
 		}
 
 		public void Save()

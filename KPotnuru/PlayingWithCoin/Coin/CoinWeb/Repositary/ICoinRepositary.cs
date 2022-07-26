@@ -4,8 +4,8 @@ namespace CoinWeb.Repositary
 {
 	public interface ICoinRepositary
 	{
-		IEnumerable<Occurence> GetAll();
-		void Add(Occurence occurence);
+		IEnumerable<TossingTable> GetAll(TossingTable table);
+		void Add(TossingTable table);
 		void Save();
 	}
 }

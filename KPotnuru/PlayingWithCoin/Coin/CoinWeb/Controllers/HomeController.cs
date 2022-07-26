@@ -10,9 +10,9 @@ namespace CoinWeb.Controllers
 	public class HomeController : Controller
 	{
 		DataContext Context;
-		ICoinRepositary coinRepositary;
+		CoinRepositary coinRepositary;
 		Coin coin = new Coin();
-		public HomeController(DataContext _Context, ICoinRepositary _coinRepositary)
+		public HomeController(DataContext _Context, CoinRepositary _coinRepositary)
 		{
 			Context = _Context;
 			coinRepositary = _coinRepositary;
@@ -23,15 +23,15 @@ namespace CoinWeb.Controllers
 
 			ViewBag.Upside = coin.FacingUpside;
 			ViewBag.DownSide =coin.FacingDownside;
-			//var rows = Context.TossResults;
-			//foreach (var row in rows)
-			//{
-			//	Context.TossResults.Remove(row);				
-			//}
-			//Context.SaveChanges();
+			var rows = Context.TossResults;
+			foreach (var row in rows)
+			{
+				Context.TossResults.Remove(row);
+			}
+			Context.SaveChanges();
 
 			return View();
-		}
+		} 
 		
 		int Count = 1;
 		[HttpPost]

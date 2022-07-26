@@ -9,7 +9,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(
 	builder.Configuration.GetConnectionString("Defaltconnection"))
 );
-builder.Services.AddScoped<ICoinRepositary, CoinRepositary>();
+builder.Services.AddScoped<CoinRepositary>();
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -26,9 +28,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
 app.MapControllerRoute(
 	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}");
+	pattern: "{controller=Tossing}/{action=Toss}/{id?}");
 
 app.Run();
