@@ -8,11 +8,18 @@ namespace Coin_Flip
 {
     public interface ICoinFlip
     {
+        string Up { get; set; }
+        string Down { get; set; }
+        void set_initial_Sides();
+        void Flip();
+
+        int Count() { return 0; }
 
     }
     public class Coin : ICoinFlip
     {
         public Coin() { }
+
 
         private string _up;
         public string Up
@@ -53,9 +60,16 @@ namespace Coin_Flip
             }
         }
 
-        public override string ToString()
+        //public override string ToString()
+        //{
+        //    return "The Up side is " + Up + " and the Down side is " + Down;
+        //}
+
+        int count = 0;
+
+        public int Count()
         {
-            return "The Up side is " + Up + " and the Down side is " + Down;
+            return count++;
         }
 
         public enum Sides

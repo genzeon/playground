@@ -1,4 +1,6 @@
 using Coin_Flip;
+using CoinWebApp.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +9,22 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ICoinFlip,Coin>();
 
+builder.Services.AddDbContext<CoinContext>(options => options.UseSqlServer(
+    builder.Configuration.GetConnectionString("CoinString")
+    ));
+
+builder.Services.AddLogging();
+
 var app = builder.Build();
+
+using(var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<CoinContext>();
+    context.Database.EnsureCreated();
+}
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
