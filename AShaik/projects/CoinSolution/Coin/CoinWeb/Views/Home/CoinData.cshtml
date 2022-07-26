@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CoinWeb.Models.CoinDB>
+<table class="table">
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FaceUp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TossCount)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="text-center">
+    <form asp-action="flip">
+     
+        <input type="submit" value="Flip a coin" id="btnSave" class="btn btn-success" />
+    </form>
+</div>
+
+@*@using (Html.BeginForm("flip", "Home"))
+{ 
+    <input type="submit" value="refresh" class="questionInput" />      
+}*@
+@*
+<input type="text" id="Name" />
+<input type="submit" id="btnSave" value="refresh" class="questionInput" /> *@
+
+@*<script type="text/javascript">
+
+
+btnSave.addEventListener("click", function(e) { e.preventDefault(); });
+
+ 
+</script>*@

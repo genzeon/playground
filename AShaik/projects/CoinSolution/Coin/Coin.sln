@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinWeb", "CoinWeb\CoinWeb.csproj", "{B64883A1-24AB-417B-81A6-E2664CA2ACFE}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CoinDB", "CoinDB\CoinDB.sqlproj", "{5456F65D-C84A-4AA4-B667-375D6F509FD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinClass", "CoinClass\CoinClass.csproj", "{D12726B3-9459-45E8-907A-B806F24040E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinBWeb", "CoinBWeb\CoinBWeb.csproj", "{8A163076-5BFB-4317-B350-7E0BEDB80BBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B64883A1-24AB-417B-81A6-E2664CA2ACFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64883A1-24AB-417B-81A6-E2664CA2ACFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64883A1-24AB-417B-81A6-E2664CA2ACFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64883A1-24AB-417B-81A6-E2664CA2ACFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5456F65D-C84A-4AA4-B667-375D6F509FD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5456F65D-C84A-4AA4-B667-375D6F509FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5456F65D-C84A-4AA4-B667-375D6F509FD2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5456F65D-C84A-4AA4-B667-375D6F509FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5456F65D-C84A-4AA4-B667-375D6F509FD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5456F65D-C84A-4AA4-B667-375D6F509FD2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D12726B3-9459-45E8-907A-B806F24040E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D12726B3-9459-45E8-907A-B806F24040E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D12726B3-9459-45E8-907A-B806F24040E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D12726B3-9459-45E8-907A-B806F24040E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A163076-5BFB-4317-B350-7E0BEDB80BBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A163076-5BFB-4317-B350-7E0BEDB80BBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A163076-5BFB-4317-B350-7E0BEDB80BBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A163076-5BFB-4317-B350-7E0BEDB80BBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2B9AE3D-125A-46CC-BA4A-50A3C61F7FC1}
+	EndGlobalSection
+EndGlobal

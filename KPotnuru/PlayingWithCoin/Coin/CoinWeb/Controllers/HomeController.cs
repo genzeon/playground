@@ -3,6 +3,7 @@ using CoinWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using CoinClass;
+using CoinWeb.Repositary;
 
 namespace CoinWeb.Controllers
 {
@@ -22,12 +23,12 @@ namespace CoinWeb.Controllers
 
 			ViewBag.Upside = coin.FacingUpside;
 			ViewBag.DownSide =coin.FacingDownside;
-			var rows = Context.TossResults;
-			foreach (var row in rows)
-			{
-				Context.TossResults.Remove(row);				
-			}
-			Context.SaveChanges();
+			//var rows = Context.TossResults;
+			//foreach (var row in rows)
+			//{
+			//	Context.TossResults.Remove(row);				
+			//}
+			//Context.SaveChanges();
 
 			return View();
 		}
@@ -39,8 +40,8 @@ namespace CoinWeb.Controllers
 			coin.filp();
 			entity.Result = coin.FacingUpside.ToString();
 			entity.No_Of_Toss = Context.TossResults.Count()+1;
-			Context.Add(entity);
-			Context.SaveChanges();
+			coinRepositary.Add(entity);
+			coinRepositary.Save();
 			var Heads = Context.TossResults.Where(a => a.Result == "Heads");
 			ViewBag.HeadsCount = Heads.Count();
 			var Tails = Context.TossResults.Where(a => a.Result == "Tails");

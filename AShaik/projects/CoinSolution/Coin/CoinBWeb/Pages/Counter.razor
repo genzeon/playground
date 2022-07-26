@@ -1,0 +1,84 @@
+﻿@page "/counter"
+
+@using CoinBWeb.Data
+@inject CoinClass.Coin _c
+@inject Data _db
+<PageTitle>Counter</PageTitle>
+@*
+<h1>Counter</h1>*@
+
+@*<p role="status">Current count: @currentCount</p>*@
+<input type=" text" value="aakheel" />
+
+ <input @bind="InputValue" />
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+
+@code {
+    private int currentCount = 0;
+
+    private string InputValue;
+
+    //private void IncrementCount()
+    //{
+    //    currentCount++;
+    //}
+
+    private CoinDB[] Cointabledata ;
+    private void ShowData()
+    {
+
+        Cointabledata = _db.CoinDBs.ToArray();
+
+
+
+    }
+    private void IncrementCount()
+    {
+        _c.flip();
+        CoinDB cdb = new CoinDB();
+
+        cdb.Name = InputValue;
+        cdb.FaceUp = (int)_c.Up;
+        cdb.TossCount = _c.Toss;
+        _db.Add(cdb);
+        _db.SaveChanges();
+        ShowData();
+         currentCount++;
+    }
+    
+   
+
+}
+ 
+
+@if (currentCount == 0 )
+{
+    <p><em>Loading...</em></p>
+}
+else 
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>PKID</th>
+                <th>Name</th>
+                <th>Result</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+
+           
+            @foreach (var item in Cointabledata)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.FaceUp</td>
+                    <td>@item.TossCount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
