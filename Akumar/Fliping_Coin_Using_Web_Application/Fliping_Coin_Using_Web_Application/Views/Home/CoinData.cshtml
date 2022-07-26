@@ -1,0 +1,33 @@
+﻿@{
+}
+
+@model IEnumerable<Fliping_Coin_Using_Web_Application.Models.Toss>
+<table class="table">
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FaceValue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TossCount)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="text-center">
+    <form asp-action="flip">
+
+        <input type="submit" value="Flip a coin" id="btnSave" class="btn btn-success" />
+    </form>
+</div>
