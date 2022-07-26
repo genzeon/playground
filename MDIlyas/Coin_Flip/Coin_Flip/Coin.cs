@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Coin_Flip
 {
-    class Coin
+    public interface ICoinFlip
+    {
+
+    }
+    public class Coin : ICoinFlip
     {
         public Coin() { }
 

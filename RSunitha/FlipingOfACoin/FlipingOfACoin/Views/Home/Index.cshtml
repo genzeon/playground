@@ -1,14 +1,23 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model FlipingOfACoin.Models.Coin;
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div>
+    <form asp-action="Index">
+        <h2>FlipCoin</h2>
+        <lable>The UpSide is: </lable>
+        <input asp-for="Upside" value="@Model.Upside"/><br/>
+         <lable>The Downside is: </lable>
+        <input asp-for="Downside" value="@Model.Downside"/><br/>
+        <lable>The Total count is :@ViewBag.count</lable><br/>
+        <lable>The Heads count is :@ViewBag.Headcount</lable><br/>
+        <lable>The Tails count is :@ViewBag.Tailcount</lable><br/>
+         <input type = "submit" value="Flip">
+        
+
+
+    </form>
 </div>
-<from >
-    <button onclick="location.href='@Url.Action("Index","Home")'">Flip</button>
-</from>
-<lable>The Coin side is @ViewBag.a</lable></br>
 
-<lable>The Coin an other side is @ViewBag.b</lable>

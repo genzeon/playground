@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace CoinFlipDemoApp
 {
+    public interface ICoinFlip
+    {
+
+    }
     enum Sides
     {
         Heads,Tail
     }
-    internal class Coin
+    public class Coin:ICoinFlip
     {
         public Coin() { }
         private string Up;

@@ -16,3 +16,34 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+}
+table td {
+    border: 1px solid #000000;
+    width: 300px;
+}
+
+form{
+    border: 1px solid #d2d2d2;
+    width: 50%;
+    padding: 20px;
+    box-shadow: 0 0 10px #000000;
+    border-radius: 5px;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+._output_display{
+    font-weight: bold;
+}
+
+._btn{
+    border: none;
+    padding-top: 20px;
+}
