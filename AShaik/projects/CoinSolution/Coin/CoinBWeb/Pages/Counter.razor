@@ -4,12 +4,6 @@
 @inject CoinClass.Coin _c
 @inject Data _db
 <PageTitle>Counter</PageTitle>
-@*
-<h1>Counter</h1>*@
-
-@*<p role="status">Current count: @currentCount</p>*@
-<input type=" text" value="aakheel" />
-
  <input @bind="InputValue" />
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
@@ -19,19 +13,11 @@
 
     private string InputValue;
 
-    //private void IncrementCount()
-    //{
-    //    currentCount++;
-    //}
 
     private CoinDB[] Cointabledata ;
     private void ShowData()
     {
-
         Cointabledata = _db.CoinDBs.ToArray();
-
-
-
     }
     private void IncrementCount()
     {
@@ -44,14 +30,9 @@
         _db.Add(cdb);
         _db.SaveChanges();
         ShowData();
-         currentCount++;
+        currentCount++;
     }
-    
-   
-
 }
- 
-
 @if (currentCount == 0 )
 {
     <p><em>Loading...</em></p>
@@ -68,8 +49,6 @@ else
             </tr>
         </thead>
         <tbody>
-
-           
             @foreach (var item in Cointabledata)
             {
                 <tr>

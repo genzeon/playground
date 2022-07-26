@@ -19,7 +19,9 @@ namespace CoinBWeb.Controllers
 
         public IActionResult Index()
         {
-           
+            _logger.LogError("err msg");
+            _logger.LogInformation("err msg");
+            _logger.LogWarning("err msg");
             return View();
         }
 
@@ -35,7 +37,7 @@ namespace CoinBWeb.Controllers
             return View(q);
         }
         [HttpPost]
-        public IActionResult Flip(string name)
+        public IActionResult Flip(string name="aakheel")
         {
           
                 _c.flip();
