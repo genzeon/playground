@@ -1,8 +1,20 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model CoinFlipDemoApp.Coin;
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form asp-action="Index">
+    <h2>Flipping coin</h2>
+    <label>Upside:</label>
+    <input asp-for="@Model._Up"/><br />
+    <label>DownSide:</label>
+    <input asp-for="@Model._Down"/><br />
+    <lable>Coin Name</lable>
+    <input value="@ViewBag.Name" name="Name" /><br />
+      <h3>Total Count of the name is : @ViewBag.NameCountt</h3>
+    <h3>Total Count of the Coin is : @ViewBag.TotalCount</h3>
+      <h3>Total Count of the Head is : @ViewBag.TotalHeadss</h3>
+      <h3>Total Count of the Tail is : @ViewBag.TotalTailss</h3>
+    <input type="submit" value="Flip"/>
+
+</form>

@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<FlippingofCoin.Models.Toss>
+
+
+
+<table class="table">
+   
+    <tbody>
+             <tr>
+                 <th>ID</th>
+                <th>Name</th>
+                <th>FaceUp</th>
+                <th>Trys</th>
+            </tr>
+        @foreach (var item in Model)
+        {
+       
+            <tr>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.FaceUp)
+
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.Tosscount)
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div class="text-center">
+
+
+    <form asp-action="flip">
+ <input type = "submit"   value ="Flip a coin"  class="btn btn-success" />
+             
+ </form>
+ </div>

@@ -3,15 +3,16 @@ using CoinWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using CoinClass;
+using CoinWeb.Repositary;
 
 namespace CoinWeb.Controllers
 {
 	public class HomeController : Controller
 	{
 		DataContext Context;
-		ICoinRepositary coinRepositary;
+		CoinRepositary coinRepositary;
 		Coin coin = new Coin();
-		public HomeController(DataContext _Context, ICoinRepositary _coinRepositary)
+		public HomeController(DataContext _Context, CoinRepositary _coinRepositary)
 		{
 			Context = _Context;
 			coinRepositary = _coinRepositary;
@@ -25,12 +26,12 @@ namespace CoinWeb.Controllers
 			var rows = Context.TossResults;
 			foreach (var row in rows)
 			{
-				Context.TossResults.Remove(row);				
+				Context.TossResults.Remove(row);
 			}
 			Context.SaveChanges();
 
 			return View();
-		}
+		} 
 		
 		int Count = 1;
 		[HttpPost]
@@ -39,8 +40,8 @@ namespace CoinWeb.Controllers
 			coin.filp();
 			entity.Result = coin.FacingUpside.ToString();
 			entity.No_Of_Toss = Context.TossResults.Count()+1;
-			Context.Add(entity);
-			Context.SaveChanges();
+			coinRepositary.Add(entity);
+			coinRepositary.Save();
 			var Heads = Context.TossResults.Where(a => a.Result == "Heads");
 			ViewBag.HeadsCount = Heads.Count();
 			var Tails = Context.TossResults.Where(a => a.Result == "Tails");
