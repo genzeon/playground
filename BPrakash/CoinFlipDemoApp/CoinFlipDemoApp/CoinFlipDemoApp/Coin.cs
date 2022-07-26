@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace CoinFlipDemoApp
 {
-    public interface ICoinFlip
-    {
-
+    public interface ICoinFlip {
+        string _Up { get; set; }
+        string _Down { get; set; }
+        void SetSides();
+        void Flip();
+    
     }
     enum Sides
     {

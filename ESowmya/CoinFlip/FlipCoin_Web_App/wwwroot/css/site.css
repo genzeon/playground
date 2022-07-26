@@ -16,3 +16,13 @@ html {
 body {
   margin-bottom: 60px;
 }
+input{
+    border:none;
+    font-weight:bold;
+}
+form{
+    box-shadow:0 0 10px #423f3f;
+    width:500px;
+    padding:5px;
+    margin-left:300px
+}

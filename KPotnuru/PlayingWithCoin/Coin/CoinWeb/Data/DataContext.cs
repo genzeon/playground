@@ -10,5 +10,6 @@ namespace CoinWeb.Data
 
 		}
 		public DbSet<Occurence> TossResults { get; set; }
+		public DbSet<TossingTable> TossingTable { get; set; }
 	}
 }

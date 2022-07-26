@@ -2,7 +2,78 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@model Coin_Flip.ICoinFlip;
+
+    <form asp-action="Index">
+        
+        <h2>Flipping Coin</h2>
+
+        <hr />
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                @*Coin Name*@
+                <tr>
+                    <td>Coin Name</td>
+                    <td><input type="text" name="Name" value="@ViewBag.Name" placeholder="Enter Coin Name" /></td>
+                </tr>
+
+                @*Up Side *@
+
+                <tr>
+                    <td>Up Side</td>
+                    <td><input asp-for="@Model.Up"/></td>
+                </tr>
+
+                @*Down Side *@
+
+                <tr>
+                    <td>Down Side</td>
+                    <td><input asp-for="@Model.Down"/></td>
+                </tr>
+
+                @*Heads Counts *@
+
+                <tr>
+                    <td>Heads Count</td>
+                    <td>@ViewBag.HeadsCount</td>
+                </tr>
+
+                @*Tails Count*@
+
+                <tr>
+                    <td>Tails Count</td>
+                    <td>@ViewBag.TailsCount</td>
+                </tr>
+
+                @*Total Coin Count*@
+
+                <tr>
+                    <td>Total Count of the Coin</td>
+                    <td>@ViewBag.CountOfCoin</td>
+                </tr>
+                
+                @*Total Count *@
+
+                <tr>
+                    <td>Total Count</td>
+                    <td>@ViewBag.TotalCount</td>
+                </tr>
+
+                @*Button*@
+
+                <tr>
+                    <td></td>
+                    <td><input class="btn btn-success" type="submit" value="Flip"/></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+
