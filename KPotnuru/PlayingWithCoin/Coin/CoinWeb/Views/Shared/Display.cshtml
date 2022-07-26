@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CoinWeb.Models.TossingTable>
+<button><a asp-action="Toss">Toss</a></button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TRY)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FACE_VALUE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TRY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FACE_VALUE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            </tr>
+}
+    </tbody>
+</table>

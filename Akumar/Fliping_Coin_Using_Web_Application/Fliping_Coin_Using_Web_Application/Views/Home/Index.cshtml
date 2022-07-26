@@ -1,0 +1,23 @@
+﻿@model Fliping_Coin_Using_Web_Application.Models.Coin;
+
+@*@model IEnumerable<Fliping_Coin_Using_Web_Application.Models.Toss>*@
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<label>The side Of the Coin</label>
+@*@foreach (var item in Model)
+{
+  @Html.DisplayFor(modeIteam => item.Up)
+  @Html.DisplayFor(modelIteam => item.Down)
+}*@
+
+<form asp-action="Index">
+    <input asp-for="Up" value="@ViewBag.Up" />
+    <input asp-for="Down" value="@ViewBag.Down" />
+<input type = "submit" value="Flip"/>
+
+</form>
+

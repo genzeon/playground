@@ -24,11 +24,11 @@
             Up = Sides.Heads.ToString();
             Down = Sides.Tail.ToString();
         }
-        public override string ToString()
-        {
-            return "The UpSide of the Coin is: " + Up + " and the down side of the Coin is: " + Down;
+        //public override string ToString()
+        //{
+        //    return "The UpSide of the Coin is: " + Up + " and the down side of the Coin is: " + Down;
 
-        }
+        //}
         
         public void Fliip()
         {

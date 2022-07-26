@@ -8,6 +8,11 @@ namespace CoinFlip
 {
     public interface ICoin
     {
+        string Up { get; set; }
+        string Down { get; set; }
+
+        void set_intial_value();
+        void Flip();
 
     }
      public class Coin:ICoin
