@@ -5,9 +5,11 @@ namespace COIN_FLipping.Models
     public class CoinToss
     {
         [Key]
-        [Required]
-        public int Toss { get; set; }
-        [Required]
-        public string Value { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int FaceUp { get; set; }
+        public int TossCount { get; set; }
+
+
     }
 }

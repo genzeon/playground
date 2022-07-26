@@ -2,12 +2,17 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+@*<div class="text-center">
     <h1 class="display-4">Flip The Coin</h1>
    
 </div>
 <form method="post">
-    <button type="submit">Toss</button>
-</form>
-<p>Facing Up<h1>@ViewBag.SideUp</h1></p>
+    <div class="text-center">
+<button type="submit">Toss</button>
+    <p>Facing Up<h1>@ViewBag.SideUp</h1></p>
 <p>Facing Down<h1>@ViewBag.SideDown</h1></p>
+<p>Head count<h1>@ViewBag.HeadsCount</h1></p>
+<p>Tail count<h1>@ViewBag.TailsCount</h1></p>
+</div>
+</form>
+*@

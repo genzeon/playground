@@ -5,11 +5,18 @@ namespace Flpping
     public enum CoinFace {Heads, Tails }
     public class Coin
     {
+
+        private int _toss;
         CoinFace _up, _down;
         public CoinFace Up
         { 
             get { return _up; }
             set { _up = value; }    
+        }
+        public int Toss
+        {
+            get { return _toss; }
+            set { _toss = value; }
         }
         public CoinFace Down
         {

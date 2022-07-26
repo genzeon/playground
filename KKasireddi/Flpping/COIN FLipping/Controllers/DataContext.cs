@@ -1,4 +1,4 @@
-﻿using Flpping;
+﻿using COIN_FLipping.Models;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -10,6 +10,6 @@ namespace COIN_FLipping.Controllers
         {
 
         }
-        public DbSet<Coin> Toss { get; set; }
+        public DbSet<CoinToss> Toss { get; set; }
     }
 }
