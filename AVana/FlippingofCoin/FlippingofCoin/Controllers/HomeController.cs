@@ -11,9 +11,9 @@ namespace FlippingofCoin.Controllers
         private readonly DataContext Dcon;
         private readonly ILogger _logger;
 
-        public HomeController(DataContext dcon , Flipping flp)
+        public HomeController(DataContext dcon , Flipping flp, ILogger<HomeController> logger)
         {
-            
+            _logger= logger;
           Dcon = dcon;
             _flp = flp;
         }
@@ -22,6 +22,7 @@ namespace FlippingofCoin.Controllers
         {
             _logger.LogInformation("log Information");
             _logger.LogWarning("log Warning");
+            _logger.Log(LogLevel.Warning, "After Flipping");
             return View();
         }
         //[HttpPost]
@@ -56,18 +57,22 @@ namespace FlippingofCoin.Controllers
         {
             return View();
         }
-        public IActionResult coinstimulate()
+       
+        public IActionResult Flip(string Name)
         {
-            var qone = Dcon.Flips.ToList();
-            return View(qone);
-        }
-        public IActionResult Flip()
-        {
-            _flp.Flip();
-
-
             Toss ctb = new Toss();
-            ctb.Name = "anusha";
+            _flp.Flip();
+            string pname = Name;
+
+            if(Name != null)
+            {
+                ctb.Name = Name;
+            }
+            else
+            {
+                ctb.Name = "Anusha";
+            }
+
             ctb.FaceUp = (int)_flp.Upside;
             ctb.Tosscount = _flp.toss;
 
@@ -78,6 +83,11 @@ namespace FlippingofCoin.Controllers
             Dcon.SaveChanges();
             return RedirectToAction("coinstimulate", "Home");
             
+        }
+        public IActionResult coinstimulate()
+        {
+            var qone = Dcon.Flips.ToList();
+            return View(qone);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

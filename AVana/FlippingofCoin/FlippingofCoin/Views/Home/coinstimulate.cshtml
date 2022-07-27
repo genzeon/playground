@@ -3,7 +3,15 @@
 *@
 @model IEnumerable<FlippingofCoin.Models.Toss>
 
+    <div class="text-center">
 
+
+    <form asp-action="flip">
+        <input type="text" name="Name" />
+ <input type = "submit"   value ="Flip a coin"  class="btn btn-success" />
+             
+ </form>
+ </div>
 
 <table class="table">
    
@@ -39,11 +47,3 @@
 </table>
 
 
-<div class="text-center">
-
-
-    <form asp-action="flip">
- <input type = "submit"   value ="Flip a coin"  class="btn btn-success" />
-             
- </form>
- </div>
